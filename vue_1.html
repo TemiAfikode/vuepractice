@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<style>
+			.highlight{border: 3px solid yellow;}
 			.container{background:#cecece;}
 		</style>
 	</head>
@@ -38,7 +39,11 @@
 			1. Create an image and set the following attributes with Vue {src, alt, title}
 			2. Augment the span below to include another class called "highlight", which has a yellow border.
 		-->
-		<span v-bind:class="loadClass">
+
+		<!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/220px-FullMoon2010.jpg" alt="Moon" title="">-->
+		<img v-bind:src="imageSrc" v-bind:title="imageTitle" v-bind:alt="imageAlt">
+
+		<span v-bind:class="[loadClass, highlightClass]">
 			look at me!
 		</span>
 	</div>
@@ -49,6 +54,10 @@
 		el: '#app',
 		data:{
 			loadClass : 'container',
+			highlightClass : 'highlight',
+			imageSrc: 'https://cdn.britannica.com/22/75922-050-D3982BD0/flowers-fruits-garden-strawberry-plant-species.jpg',
+			imageTitle: 'A StrawBerry',
+			imageAlt: 'StrawBerry'
 			//newStyle : 'font-size:30px;',
 			//newAlt : 'dynamically set alt!'
 			
